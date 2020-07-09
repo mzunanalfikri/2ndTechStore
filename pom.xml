@@ -15,8 +15,12 @@
 	<description>2nd Tech Store Project</description>
 
 	<properties>
-		<java.version>11</java.version>
+    	<java.version>1.8.0_171</java.version>
 	</properties>
+
+	<!-- <properties>
+		<java.version>11</java.version>
+	</properties> -->
 
 	<dependencies>
 		<dependency>
