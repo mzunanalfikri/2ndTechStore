@@ -5,3 +5,13 @@ create table users (
     password varchar(255)
 );
 CREATE SEQUENCE hibernate_sequence START 1;
+
+create table item (
+    id serial primary key not null,
+    title text not null,
+    description text,
+    category varchar(20),
+    image bytea,
+    email text not null,
+    price integer
+);
