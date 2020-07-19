@@ -1,39 +1,76 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<head>
-    <meta charset="UTF-8">
-    <title>2nd Tech Store</title>
-    <link rel="stylesheet" type="text/css"
-          th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}" />
-</head>
+<head th:replace="_templates_ :: template-header"/>
 <body>
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-    <div class="container">
-        <a class="navbar-brand" th:href="@{/}">2ndTechStore</a>
-        <ul class="navbar-nav navbar-center">
-            <li class="nav-item active">
-                <a class="nav-link" th:href="@{/}">Home</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav navbar-right">
-            <li class="nav-item active">
-                <a class="nav-link" th:href="@{/registration}">Register</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" th:href="@{/login}">Login</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+<div th:replace="_templates_ :: navbar-root"/>
 
+
+<br>
+<br>
+<div class="container">
+    <h1 class="text-center">2nd Tech Store</h1>
+</div>
+<br>
 
 <div class="container">
-    <h1>2nd Tech Store</h1>
-    <p>Products shows here</p>
+    <form th:action="@{/}" th:object="${filter}" class="row" method="post">
+        <p class="col-sm-1"></p>
+        <div class="form-group col-sm-6">
+            <input class="form-control" th:field="*{key}" placeholder="Search..." type="text" th:default="null"/>
+        </div>
+        <!--        <input class="col-sm-6" type="text" placeholder="Search..." th:field="*{key}"/>-->
+        <div class="form-group col-sm-2">
+            <select class="form-control" th:field="*{category}" >
+                <option value="All Category">All Category</option>
+                <option value="RAM">RAM</option>
+                <option value="Processor">Processor</option>
+                <option value="VGA">VGA</option>
+                <option value="Motherboard">Motherboard</option>
+                <option value="Storage">Storage</option>
+            </select>
+        </div>
+        <div class="form-group col-sm-2">
+            <input type="submit" class="form-control btn btn-primary" value="Search" />
+        </div>
+
+    </form>
 </div>
 
+<br>
+<br>
 
-<script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js/}"></script>
-<script type="text/javascript" th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}"></script>
+<div class="container">
+    <!--For Page-->
+    <div th:each="listitem : ${items}" class="page">
+        <!--For Row containing all card-->
+        <div class="row">
+            <!--Card 1-->
+            <div th:each="item : ${listitem}" class="col-sm-4">
+                <div class="card card-cascade card-ecommerce wider shadow mb-5 ">
+                    <!--Card image-->
+                    <div class="view view-cascade overlay text-center"> <img class="card-img-top" th:src="'data:image/jpeg;base64,' + ${item.getImageEncoded()}" height="200" width="auto"> <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a> </div>
+                    <!--Card Body-->
+                    <div class="card-body card-body-cascade text-center">
+                        <!--Card Title-->
+                        <h4 class="card-title"><strong><a href="" th:text="${item.getTitle()}"></a></strong></h4> <!-- Card Description-->
+                        <p class="card-text" th:text="${item.getDescription()}">This is a Mobile phone with all the advance features and at best price. </p>
+                        <p class="card-text">Contact : <span th:text="${item.getEmail()}"> </span></p>
+                        <p class="price" >Rp <span th:text="${item.getPrice()}"></span></p>
+                        <!--Card footer-->
+                        <a th:href="@{/login}">
+                            <div class="btn-primary btn-lg">
+                                Login to Buy
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="_templates_ :: bottom-script"/>
 </body>
 </html>

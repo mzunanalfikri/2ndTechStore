@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_templates_ :: template-header"/>
+<body>
+
+<div th:replace="_templates_ :: navbar-home"/>
+
+<!-- INI ISI FORM -->
+<div class="container justify-content-center">
+    <div class="justify-content-center">
+        <!--        <div class="col-md-6 col-md-offset-3">-->
+        <div class="justify-content-center">
+
+<!--            <div th:if="${param.success}">-->
+<!--                <div class="alert alert-info">You've successfully registered-->
+<!--                    to 2ndTechStore!</div>-->
+<!--            </div>-->
+
+            <h1 class="text-center">Add Item</h1>
+            <form th:action="@{/addItem}" th:object="${item}" method="post" id="addItem" enctype="multipart/form-data">
+
+<!--                <p class="error-message" th:if="${#fields.hasGlobalErrors()}"-->
+<!--                   th:each="error : ${#fields.errors('global')}" th:text="${error}">Validation-->
+<!--                    error</p>-->
+
+                <div class="form-group">
+                    <label for="image" class="control-label">Image</label>
+                    <input id="image" class="form-control" th:field="*{fileImage}" type="file" />
+                    <!--                    <p class="error-message"-->
+                    <!--                       th:each="error: ${#fields.errors('name')}"-->
+                    <!--                       th:text="${error}">Validation error</p>-->
+                </div>
+
+                <div class="form-group">
+                    <label for="title" class="control-label">Title</label> <input
+                        id="title" class="form-control" th:field="*{title}" />
+<!--                    <p class="error-message"-->
+<!--                       th:each="error: ${#fields.errors('name')}"-->
+<!--                       th:text="${error}">Validation error</p>-->
+                </div>
+                <div class="form-group">
+                    <label for="description" class="control-label">Description</label>
+<!--                    <input id="description" class="form-control" th:field="*{description}"/>-->
+                    <textarea id="description" class="form-control" th:field="*{description}" rows="8"/>
+<!--                    <p class="error-message"-->
+<!--                       th:each="error : ${#fields.errors('email')}" th:text="${error}">Validation-->
+<!--                        error</p>-->
+                </div>
+<!--                <div class="form-group">-->
+<!--                    <label for="category" class="control-label">Category</label> <input-->
+<!--                        id="category" class="form-control" th:field="*{category}" />-->
+<!--                    &lt;!&ndash;                    <p class="error-message"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                       th:each="error : ${#fields.errors('email')}" th:text="${error}">Validation&ndash;&gt;-->
+<!--                    &lt;!&ndash;                        error</p>&ndash;&gt;-->
+<!--                </div>-->
+
+
+                <div class="form-group">
+                    <label class="control-label" for="cars">Category</label>
+                    <select name="cars" id="cars" form="addItem" th:field="*{category}">
+                        <option value="RAM">RAM</option>
+                        <option value="Processor">Processor</option>
+                        <option value="VGA">VGA</option>
+                        <option value="Motherboard">Motherboard</option>
+                        <option value="Storage">Storage</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="price" class="control-label">Price</label>
+                    <input id="price" class="form-control" th:field="*{price}" type="number" />
+                    <!--                    <p class="error-message"-->
+                    <!--                       th:each="error : ${#fields.errors('email')}" th:text="${error}">Validation-->
+                    <!--                        error</p>-->
+                </div>
+
+                <div class="form-group justify-content-center">
+                    <button type="submit" class="btn btn-primary align-content-center" >Add Item</button>
+<!--                    <span>Already registered? <a href="/home" th:href="@{/addItem}">Login-->
+<!--								here</a></span>-->
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div th:replace="_templates_ :: bottom-script"/>
+</body>
+</html>

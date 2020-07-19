@@ -1,22 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <link rel="stylesheet" type="text/css"
-          th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}" />
-
-    <title>Login - 2ndTechStore</title>
-</head>
+<head th:replace="_templates_ :: template-header"/>
 <body>
 
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-    <div class="container">
-        <a class="navbar-brand" th:href="@{/}">2ndTechStore</a>
-    </div>
-</nav>
+<div th:replace="_templates_ :: navbar-root"/>
 
 <br>
 <br>
@@ -43,8 +30,8 @@
                                                                    id="password" name="password" class="form-control"
                                                                    placeholder="Password" />
                 </div>
-                <div class="form-group align-content-center">
-                    <div class="row">
+                <div class="form-group">
+                    <div class="row justify-content-center">
                         <div class="col-sm-6 col-sm-offset-3">
                             <input type="submit" name="login-submit" id="login-submit"
                                    class="form-control btn btn-primary" value="Log In" />
@@ -61,11 +48,7 @@
 
 
 </div>
-
-<script type="text/javascript"
-        th:src="@{/webjars/jquery/3.5.1/jquery.min.js/}"></script>
-<script type="text/javascript"
-        th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}"></script>
+<div th:replace="_templates_ :: bottom-script"/>
 
 </body>
 </html>

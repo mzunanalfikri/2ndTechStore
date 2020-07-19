@@ -1,6 +1,6 @@
 package com.zengine.techstore.webcontroller;
 
-import com.zengine.techstore.webcontroller.dto.UserRegistrationDto;
+import com.zengine.techstore.dto.UserRegistrationDto;
 import com.zengine.techstore.model.User;
 import com.zengine.techstore.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

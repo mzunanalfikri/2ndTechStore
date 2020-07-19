@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:replace="_templates_ :: template-header"/>
+<body>
+<div th:replace="_templates_ :: navbar-home"/>
+
+<br>
+<br>
+<h1 class="text-center">My Profile</h1>
+
+<div th:if="${param.success}" class="container justify-content-center">
+    <div class="alert alert-info">Profile Successfully edited !</div>
+</div>
+
+
+<div class="container">
+
+    <div class="row">
+        <p class="col-sm-auto"> Name  : </p>
+        <p class="col-sm-auto" th:text="${username}"> </p>
+    </div>
+
+    <div class="row">
+        <p class="col-sm-auto"> Email  : </p>
+        <p class="col-sm-auto" th:text="${email}"> </p>
+    </div>
+
+    <div class="row">
+        <p class="col-sm-1"></p>
+        <br>
+        <br>
+        <a th:href="@{/profile/change}" class="col-sm-3">
+            <div class="btn btn-primary btn-lg">
+                Change Profile
+            </div>
+        </a>
+    </div>
+</div>
+
+
+<div th:replace="_templates_ :: bottom-script"/>
+</body>
+</html>

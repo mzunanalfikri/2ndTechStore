@@ -1,47 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<header th:replace="_templates_ :: template-header"/>
+<head th:replace="_templates_ :: template-header"/>
 <body>
-
 <div th:replace="_templates_ :: navbar-home"/>
 
-<br>
-<br>
-<div class="container">
-    <h1 class="text-center">2nd Tech Store</h1>
-</div>
-<br>
+<h1 class="text-center">My Items</h1>
 
-<div class="container">
-    <form th:action="@{/home}" th:object="${filter}" class="row" method="post">
-        <p class="col-sm-1"></p>
-        <div class="form-group col-sm-6">
-            <input class="form-control" th:field="*{key}" placeholder="Search..." type="text" th:default="null"/>
-        </div>
-<!--        <input class="col-sm-6" type="text" placeholder="Search..." th:field="*{key}"/>-->
-        <div class="form-group col-sm-2">
-            <select class="form-control" th:field="*{category}" >
-                <option value="All Category">All Category</option>
-                <option value="RAM">RAM</option>
-                <option value="Processor">Processor</option>
-                <option value="VGA">VGA</option>
-                <option value="Motherboard">Motherboard</option>
-                <option value="Storage">Storage</option>
-            </select>
-        </div>
-        <div class="form-group col-sm-2">
-            <input type="submit" class="form-control btn btn-primary" value="Search" />
-        </div>
-
-    </form>
+<div th:if="${param.success}" class="container justify-content-center">
+    <div class="alert alert-info">Item Successfully added!</div>
 </div>
 
-<br>
-<br>
+<div class="container" th:if="${param.successdeleted}">
+    <div class="alert alert-info text-center">Item deleted.</div>
+</div>
 
-<div class="container" th:if="${param.success}">
-    <div class="alert alert-info">Item purchased. Thank you for shopping!</div>
+
+<div class="container justify-content-center">
+    <br>
+    <a class="nav-link justify-content-center" th:href="@{/addItem}">
+    <button type="button"  class="btn-primary rounded btn-lg">Add Item</button>
+    </a>
+</div>
+
+<div class="container" th:if="${items.isEmpty()}">
+    <h5 class="alert" style="font-style: italic;">Oops, you don't have any items.</h5>
 </div>
 
 <div class="container">
@@ -64,15 +47,17 @@
                         <p class="card-text">Contact : <span th:text="${item.getEmail()}"> </span></p>
                         <p class="price" >Rp <span th:text="${item.getPrice()}"></span></p>
                         <!--Card footer-->
-                        <div th:switch="${item.getEmail().equals(user.getName())}" >
-                            <a th:case="${false}" th:href="@{/home/item?id=}+${item.getId()}">
+                        <div class="row justify-content-center">
+                            <a class="col-sm-auto" th:href="@{/home}">
                                 <div class="btn-primary btn-lg">
-                                    BUY
+                                    EDIT
                                 </div>
                             </a>
-                            <div th:case="${true}" class="btn-primary btn-lg">
-                                Your Item
-                            </div>
+                            <a class="col-sm-auto" th:href="@{/MyItem/deleteItem?id=}+${item.getId()}">
+                                <div class="btn-danger btn-lg" >
+                                    DELETE
+                                </div>
+                            </a>
                         </div>
 
                     </div>
@@ -82,7 +67,7 @@
     </div>
 </div>
 
-<div th:replace="_templates_ :: bottom-script"/>
 
+<div th:replace="_templates_ :: bottom-script"/>
 </body>
 </html>

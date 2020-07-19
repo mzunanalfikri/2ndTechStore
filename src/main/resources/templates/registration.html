@@ -1,21 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <link rel="stylesheet" type="text/css"
-          th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}" />
-
-    <title>Registration - 2ndTechStore</title>
-</head>
+<head th:replace="_templates_ :: template-header"/>
 <body>
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-    <div class="container">
-        <a class="navbar-brand" th:href="@{/}">2ndTechStore</a>
-    </div>
-</nav>
+<div th:replace="_templates_ :: navbar-root"/>
 
 <br>
 <br>
@@ -98,10 +85,16 @@
 <!--                       th:each="error : ${#fields.errors('terms')}" th:text="${error}">Validation-->
 <!--                        error</p>-->
 <!--                </div>-->
-                <div class="form-group justify-content-center">
-                    <button type="submit" class="btn btn-primary">Register</button>
-                    <span>Already registered? <a href="/home" th:href="@{/login}">Login
+                <div class="form-group">
+                    <div class="row justify-content-center">
+                        <button type="submit" class="btn btn-primary justify-content-center">Register</button>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <span>Already registered? <a href="/home" th:href="@{/login}">Login
 								here</a></span>
+                    </div>
+
                 </div>
 
             </form>
@@ -109,9 +102,6 @@
     </div>
 </div>
 
-<script type="text/javascript"
-        th:src="@{/webjars/jquery/3.5.1/jquery.min.js/}"></script>
-<script type="text/javascript"
-        th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}"></script>
+<div th:replace="_templates_ :: bottom-script"/>
 </body>
 </html>

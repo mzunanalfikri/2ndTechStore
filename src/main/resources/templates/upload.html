@@ -11,7 +11,8 @@
         <input type="file" name="file"/>
         <input type="submit"/>
     </form>
-
-    <img th:each="src : ${files}" th:src="'/image/' + ${src}" width="128">
+    <h2 th:if="${msg}"> INI HASIL GAMBAR DARI DB</h2>
+    <img th:src="'data:image/jpeg;base64,' + ${img}" />
+    <!--    <img th:each="src : ${files}" th:src="'/image/' + ${src}" width="128">-->
 </body>
 </html>

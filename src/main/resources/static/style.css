@@ -1,59 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 100;
+ul {
+    list-style-type: none;
+    margin-left: 37%;
+    padding: 0
 }
 
-li, a, button {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    color: #edf0f1;
-    text-decoration: none;
+.rating {
+    margin-left: 37%
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 10%;
-    background-color: #24252a;
-    margin : 0;
+.page {
+    background-color: #dfe6e0;
+    padding: 2%;
+    margin: auto
 }
 
-.nav__links li{
-    list-style: none;
+.fa {
+    color: #f2dd1d
 }
 
-.nav__links li{
-    display: inline-block;
-    padding: 0px 20px;
+.card-img-top {
+    width: 90%;
+    height: 225px
 }
 
-.nav__links li a {
-    transition: all 0.3s ease 0s;
+.view {
+    background-color: #dfe6e0;
+    padding: 10px;
+    margin: 20px
 }
 
-.nav__links li a:hover {
-    color: #0088a9;
+.card {
+    width: 95%;
+    padding: 0px;
+    margin-left: 2%
 }
 
-button {
-    padding: 9px 25px;
-    background-color: rgba(0, 136, 169, 1);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
+.card-footer {
+    background-color: #ff772e;
+    font-weight: 700
 }
 
-button:hover{
-    background-color: rgba(0, 136, 200, 3);
-}
-
-.logo {
-    color: #edf0f1;
-    font-family: fantasy;
+.price {
+    color: #ff4517;
+    font-weight: 600
 }

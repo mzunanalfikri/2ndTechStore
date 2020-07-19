@@ -1,6 +1,7 @@
 package com.zengine.techstore.service;
 
-import com.zengine.techstore.webcontroller.dto.UserRegistrationDto;
+import com.zengine.techstore.dto.ChangeUserDto;
+import com.zengine.techstore.dto.UserRegistrationDto;
 import com.zengine.techstore.model.User;
 import com.zengine.techstore.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,14 @@ public class UserServiceImplementation implements UserService{
         user.setEmail(registration.getEmail());
         user.setPassword(passwordEncoder.encode(registration.getPassword()));
         user.setRoles(Arrays.asList("ROLE_USER"));
+        return userRepository.save(user);
+    }
+
+    @Override
+    public User saveEdit(ChangeUserDto userDto) {
+        User user = userRepository.findByEmail(userDto.getEmail());
+        user.setName(userDto.getName());
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         return userRepository.save(user);
     }
 
