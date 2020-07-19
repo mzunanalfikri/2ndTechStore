@@ -5,6 +5,8 @@
 <body>
 <div th:replace="_templates_ :: navbar-home"/>
 
+<br>
+<br>
 <h1 class="text-center">My Items</h1>
 
 <div th:if="${param.success}" class="container justify-content-center">
@@ -16,12 +18,16 @@
 </div>
 
 
-<div class="container justify-content-center">
+<div class="container justify-content-center form-group">
     <br>
-    <a class="nav-link justify-content-center" th:href="@{/addItem}">
-    <button type="button"  class="btn-primary rounded btn-lg">Add Item</button>
-    </a>
+    <div class="row justify-content-center">
+        <h4 class="col-3"> Click this for add item :</h4>
+        <div class="col-sm-3 col-sm-offset-3">
+            <a th:href="@{/addItem}" class="form-control btn btn-primary"> Add Item </a>
+        </div>
+    </div>
 </div>
+<br>
 
 <div class="container" th:if="${items.isEmpty()}">
     <h5 class="alert" style="font-style: italic;">Oops, you don't have any items.</h5>
