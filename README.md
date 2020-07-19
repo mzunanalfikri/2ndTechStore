@@ -14,4 +14,7 @@ git clone https://github.com/mzunanalfikri/2ndTechStore.git
 ```
 2. Make Postgre database using query in src/main/resources/static/crate_table.txt
 3. Setting properties in src/main/java/main/resources/application.properties
-4. 
+4. Run Application
+```
+mvn spring-boot:run
+```
