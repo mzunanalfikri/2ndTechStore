@@ -1,5 +1,6 @@
 # 2ndTechStore
-Simple E-Commerce App Made with Spring Boot, Spring Security, Spring Data JPA, Postgresql, Thymeleaf, and CSS
+Simple E-Commerce App Made with Spring Boot, Spring Security, Spring Data JPA, Postgresql, Thymeleaf, and CSS.
+This app deployed in (this link)[https://ndtechstore.herokuapp.com].
 
 ## Prerequisite :
 1. Java 11
