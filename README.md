@@ -20,3 +20,20 @@ cd 2ndTechStore
 ```
 mvn spring-boot:run
 ```
+## Features
+User can register, login, and logout.
+● User can update their profile information.
+● User can add their items to be sold.
+➢ Item sold by an user must have Item name, Item description, Item
+category, Item Price, and Item owner.
+● User can see their own items in the shop.
+● User can remove their own items from the shop.
+● User can update their own items from the shop.
+● User can see other User items.
+● User can search for specific other User items in the shop.
+● User can search other User items by category in the shop.
+➢ Categories: RAM, Processor, VGA, Motherboard, Storage.
+● User can buy other User items (price doesn’t count, so when you click buy
+the item will be automatically bought).
+● User can’t buy their own products.
+● After an item is bought, that item doesn’t exist anymore.
